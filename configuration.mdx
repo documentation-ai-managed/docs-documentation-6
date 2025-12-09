@@ -1,0 +1,153 @@
+---
+title: Customization and Configuration
+description: How to customize your documentation space, including branding and advanced settings.
+---
+
+## Overview
+
+Customize your 周河 东 Documentation space to match your brand and workflow. Set brand colors like `#3B82F6`, adjust themes, manage user permissions, and handle exports. These settings ensure your docs reflect your identity and accessibility needs.
+
+<Columns cols={3}>
+  <Card title="Brand Colors" icon="palette" href="#brand-colors">
+    Apply your primary color `#3B82F6` and accents.
+  </Card>
+  <Card title="Theme Options" icon="moon" href="#theme-options">
+    Switch between light, dark, and custom layouts.
+  </Card>
+  <Card title="Permissions" icon="shield" href="#permissions">
+    Control read, write, and admin access.
+  </Card>
+</Columns>
+
+## Applying Brand Colors
+
+Set your brand color to `#3B82F6` for a professional blue theme. Update the configuration file in your project root.
+
+<Steps>
+  <Step title="Locate Config" icon="search">
+    Find `docs.config.json` in your repository root.
+  </Step>
+  <Step title="Edit Brand Color" icon="edit-3">
+    Add or update the `brandColor` field.
+  </Step>
+  <Step title="Restart Server" icon="refresh-cw">
+    Run `npm run docs:dev` to apply changes.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JSON,YAML">
+```json
+{
+  "branding": {
+    "brandColor": "#3B82F6",
+    "logo": "/images/logo.svg"
+  }
+}
+```
+
+```yaml
+branding:
+  brandColor: "#3B82F6"
+  logo: "/images/logo.svg"
+```
+</CodeGroup>
+
+<Callout kind="tip">
+  Use hex codes without quotes for `brandColor`. Test in preview mode before deploying.
+</Callout>
+
+## Theme and Layout Options
+
+Choose themes for different user preferences. Enable dark mode or compact layouts via config.
+
+<Tabs>
+  <Tab title="Light Theme" icon="sun">
+    Default for bright environments.
+    
+    ```json
+    {
+      "theme": {
+        "mode": "light",
+        "layout": "wide"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Dark Theme" icon="moon">
+    Reduces eye strain at night.
+    
+    ```json
+    {
+      "theme": {
+        "mode": "dark",
+        "layout": "compact"
+      }
+    }
+    ```
+  </Tab>
+  <Tab title="Auto" icon="monitor">
+    Detects system preference.
+    
+    ```json
+    {
+      "theme": {
+        "mode": "system",
+        "layout": "responsive"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## User Permissions
+
+Manage access levels for collaborators. Assign roles via the dashboard or config.
+
+| Role       | Read | Write | Admin | Description                  |
+|------------|------|-------|-------|------------------------------|
+| Viewer     | Yes  | No    | No    | View published docs only     |
+| Editor     | Yes  | Yes   | No    | Edit content, no settings    |
+| Admin      | Yes  | Yes   | Yes   | Full control, including users|
+
+<Expandable title="Advanced Permissions" default-open="false">
+  For granular control, use JSON policies:
+  
+  ```json
+  {
+    "permissions": {
+      "users": {
+        "user@example.com": ["read", "write"],
+        "admin@company.com": ["read", "write", "admin"]
+      }
+    }
+  }
+  ```
+</Expandable>
+
+## Export and Import Settings
+
+Export your docs as PDF or Markdown bundles. Import from ZIP archives.
+
+<Steps>
+  <Step title="Export" icon="download">
+    Go to Settings > Export. Select format: PDF, MD, or HTML.
+  </Step>
+  <Step title="Configure" icon="settings">
+    
+    ```json
+    {
+      "export": {
+        "formats": ["pdf", "markdown"],
+        "includePrivate": false
+      }
+    }
+    ```
+  </Step>
+  <Step title="Import" icon="upload">
+    Upload ZIP via dashboard. Merges without overwriting.
+  </Step>
+</Steps>
+
+<Callout kind="info">
+  Exports include all versions. Use `includePrivate` cautiously for sensitive docs.
+</Callout>

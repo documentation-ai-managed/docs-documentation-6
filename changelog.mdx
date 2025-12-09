@@ -1,0 +1,141 @@
+---
+title: Changelog
+description: Track updates and improvements to the 周河 东 Documentation platform over time.
+---
+
+## Overview
+
+Stay informed about the latest enhancements, bug fixes, and breaking changes in the 周河 东 Documentation platform. You access this changelog to understand new features, plan migrations, and follow best practices for your documentation projects. Review recent releases below and subscribe to notifications for future updates.
+
+<Columns cols={3}>
+  <Card title="Latest: v2.0.0" icon="zap" href="#v200">
+    Major release with AI-powered search and collaboration tools.
+  </Card>
+  <Card title="v1.5.0" icon="package" href="#v150">
+    Performance improvements and new component support.
+  </Card>
+  <Card title="v1.4.0" icon="check-circle" href="#v140">
+    Bug fixes and enhanced API stability.
+  </Card>
+</Columns>
+
+<Callout kind="info">
+  Breaking changes appear with `{"breaking"}` tags. Test updates in staging before production.
+</Callout>
+
+<Update label="2024-11-01" description="v2.0.0" tags={["feature", "breaking"]}>
+
+## New Features
+
+- Introduce AI-assisted content generation for faster doc creation.
+- Add real-time collaboration with live editing and comments.
+
+## Improvements
+
+- Optimize rendering speed by `>40%` for large MDX files.
+
+## Bug Fixes
+
+- Resolve parsing errors with nested `{` and `}` characters.
+
+## Breaking Changes
+
+- Update default theme color to `#3B82F6`. Migrate custom CSS if needed.
+
+```javascript
+// Before (v1.x)
+const theme = { primary: '#1E40AF' };
+
+// After (v2.0+)
+const theme = { primary: '#3B82F6' };
+```
+
+</Update>
+
+<Update label="2024-10-15" description="v1.5.0" tags={["feature", "improvement"]}>
+
+## New Features
+
+- Launch versioned docs with automatic changelog integration.
+- Embed interactive previews for code blocks.
+
+## Improvements
+
+- Enhance search with fuzzy matching and syntax highlighting.
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+// Search API example
+const results = await searchDocs('MDX components', { fuzzy: true });
+console.log(results);
+```
+```python
+# Search API example
+results = search_docs('MDX components', fuzzy=True)
+print(results)
+```
+</CodeGroup>
+
+## Bug Fixes
+
+- Fix expandable sections collapsing unexpectedly on mobile.
+
+</Update>
+
+<Update label="2024-09-20" description="v1.4.0" tags={["bugfix", "security"]}>
+
+## Bug Fixes
+
+- Patch XSS vulnerabilities in user-generated markdown.
+- Stabilize table rendering for complex pipe syntax.
+
+## Security
+
+- Enforce strict CSP headers for embedded iframes.
+
+</Update>
+
+## Upcoming Changes
+
+<ExpandableGroup>
+  <Expandable title="v2.1.0 Preview" default-open="false">
+
+Prepare for headless CMS integration. You configure webhooks to sync content automatically.
+
+  </Expandable>
+  <Expandable title="Migration Guide">
+
+Follow these steps to upgrade:
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Export your current docs.
+  </Step>
+  <Step title="Update Package" icon="package">
+    Run `npm install zhouhe-dong-docs@latest`.
+  </Step>
+  <Step title="Test Components" icon="test-tube">
+    Verify parsing with new JSX rules.
+  </Step>
+</Steps>
+
+  </Expandable>
+</ExpandableGroup>
+
+## Stay Updated
+
+<Tabs>
+  <Tab title="GitHub" icon="github">
+    Watch the repository for release notifications.
+  </Tab>
+  <Tab title="RSS" icon="rss">
+    Subscribe to `/changelog.xml` for automated feeds.
+  </Tab>
+  <Tab title="Email" icon="mail">
+    Sign up via the dashboard settings.
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Pin this page in your dashboard for quick access to the latest `v2.0.0` features.
+</Callout>

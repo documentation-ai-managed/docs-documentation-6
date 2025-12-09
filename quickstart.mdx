@@ -1,0 +1,133 @@
+---
+title: Quickstart Guide
+description: Step-by-step instructions to set up your first documentation space and start organizing your project docs quickly.
+---
+
+## Get Started in Minutes
+
+Follow these steps to create your 周河 东 Documentation account, set up your first space, upload documents, and navigate the interface. You complete the entire process in under 5 minutes.
+
+<Callout kind="tip">
+  New to 周河 东 Documentation? This guide assumes basic web browser knowledge. Use the latest Chrome or Firefox for best results.
+</Callout>
+
+## Step-by-Step Setup
+
+Use the following numbered steps to launch your documentation space.
+
+<Steps>
+  <Step title="Create Account and Login" icon="user-plus">
+
+    Visit `https://docs.zhouhedong.com/signup` and enter your email and password.
+
+    <Tabs>
+      <Tab title="Browser" icon="globe">
+        Click **Sign Up** and verify your email via the confirmation link.
+      </Tab>
+      <Tab title="CLI (Advanced)" icon="terminal">
+        Install the CLI tool first:
+
+        <CodeGroup tabs="npm,yarn">
+          ```bash
+          npm install -g @zhouhedong/docs-cli
+          ```
+          ```bash
+          yarn global add @zhouhedong/docs-cli
+          ```
+        </CodeGroup>
+
+        Then run:
+        ```bash
+        docs-cli signup --email your@email.com
+        ```
+      </Tab>
+    </Tabs>
+
+  </Step>
+
+  <Step title="Create Your First Space" icon="folder-plus">
+
+    After login, click **New Space** in the dashboard.
+
+    Enter a name like `My Project Docs` and select **Public** or **Private** visibility.
+
+    <Image
+      src="https://via.placeholder.com/800x400/3B82F6/white?text=Create+Space+Screenshot"
+      alt="Screenshot of the New Space creation form"
+      width="800"
+      height="400"
+    />
+
+  </Step>
+
+  <Step title="Upload Initial Documents" icon="upload-cloud">
+
+    In your new space, use the **Upload** button.
+
+    Drag and drop Markdown files or use the file picker for PDFs and images.
+
+    <CodeGroup tabs="Drag & Drop,API">
+      ```markdown
+      # README.md
+      Welcome to My Project.
+
+      ## Features
+      - Fast setup
+      - MDX support
+      ```
+      ```javascript
+      const response = await fetch('https://api.docs.zhouhedong.com/v1/spaces/{spaceId}/upload', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${YOUR_API_TOKEN}` },
+        body: formData
+      });
+      ```
+    </CodeGroup>
+
+    <Callout kind="info">
+      Supported formats: `.mdx`, `.md`, `.pdf`, `.png`, `.jpg`. Max file size: `50MB`.
+    </Callout>
+
+  </Step>
+
+  <Step title="Basic Navigation" icon="compass">
+
+    Explore your space using these key areas:
+
+    | Section     | Purpose                          | Shortcut     |
+    |-------------|----------------------------------|--------------|
+    | Sidebar     | Manage spaces and pages          | `Ctrl+B`    |
+    | Editor      | Edit MDX content live            | `Ctrl+E`    |
+    | Preview     | Real-time page rendering         | `Ctrl+P`    |
+    | Settings    | Configure themes and permissions | Gear icon   |
+
+    Test navigation by creating a test page: **New Page** > Add title > **Publish**.
+
+  </Step>
+</Steps>
+
+## Next Steps
+
+Now that your space is ready, explore these features to enhance your documentation.
+
+<Columns cols={3}>
+  <Card title="Customize Themes" icon="palette" href="/docs/themes">
+    Apply your brand color `#3B82F6` and custom layouts.
+  </Card>
+  <Card title="Collaborate" icon="users" href="/docs/collaboration">
+    Invite team members and set permissions.
+  </Card>
+  <Card title="Advanced Editor" icon="edit-3" href="/docs/editor">
+    Use components like `<Steps>` and `<Tabs>` for rich docs.
+  </Card>
+</Columns>
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+
+- **Login fails?** Check your email verification and clear browser cache.
+- **Upload errors?** Ensure files are under `50MB` and formats match.
+- **Navigation stuck?** Refresh the page or use `Ctrl+R`.
+
+</Expandable>
+
+Your documentation space is now live. Start organizing project docs today!

@@ -1,0 +1,109 @@
+---
+title: Welcome to 周河 东 Documentation
+description: An overview of the 周河 东 documentation platform, its purpose, and key benefits for organizing project documentation.
+---
+
+## Overview
+
+周河 东 Documentation provides a centralized platform where you build, organize, and maintain all your project documentation. You create structured spaces for APIs, user guides, and release notes with intuitive tools that scale with your team. Access version history, search across pages, and collaborate in real-time to keep your docs always up-to-date.
+
+## Core Purpose and Benefits
+
+You use 周河 东 Documentation to streamline documentation workflows. Eliminate scattered Markdown files and wikis by consolidating everything into one searchable hub.
+
+<Columns cols={3}>
+  <Card title="Organized Structure" icon="layout" href="/docs/spaces">
+    Create nested pages and sidebars for intuitive navigation.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/docs/versions">
+    Track changes with Git integration and rollback anytime.
+  </Card>
+  <Card title="Collaboration" icon="users" href="/docs/team">
+    Invite team members and review edits with comments.
+  </Card>
+</Columns>
+
+<Callout kind="tip">
+  Start small: Import your existing Markdown files to see immediate organization benefits.
+</Callout>
+
+## Getting Started
+
+Follow these steps to set up your first documentation space.
+
+<Steps>
+  <Step title="Create a Space" icon="plus">
+    Log in and click "New Space". Name it after your project, like "API v2 Docs".
+  </Step>
+  <Step title="Add Pages" icon="file-text">
+    Use the editor to create `introduction.mdx` or import from GitHub.
+
+    <CodeGroup tabs="MDX,Markdown">
+      ```mdx
+      ---
+      title: API Overview
+      description: Core endpoints and authentication.
+      ---
+      
+      ## Quick Start
+      Send a request to `{`/api/v1/users`}`.
+      ```
+      ```markdown
+      # API Overview
+      
+      ## Quick Start
+      Send a GET request to /api/v1/users.
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Publish" icon="globe">
+    Preview changes, then publish. Share the live URL with your team.
+  </Step>
+</Steps>
+
+## Brand Guidelines
+
+Adhere to these guidelines to maintain consistency across your documentation.
+
+<Tabs>
+  <Tab title="Colors" icon="palette">
+    Primary brand color: `#3B82F6`. Use it for headings and accents.
+    
+    | Color       | Hex Code   | Usage                  |
+    |-------------|------------|------------------------|
+    | Primary    | `#3B82F6` | Buttons, links        |
+    | Secondary  | `#1E40AF` | Hover states          |
+    | Neutral    | `#6B7280` | Text, borders         |
+  </Tab>
+  <Tab title="Typography" icon="font">
+    Headings: Use H2 (`##`) for sections, H3 (`###`) for subsections.
+    
+    Body text: 16px base size. Avoid more than three font weights per page.
+  </Tab>
+  <Tab title="Icons" icon="image">
+    Source from Lucide library. Examples: `book-open`, `code`, `shield`.
+    
+    Prefer line icons for scalability. Size: 24px default.
+  </Tab>
+</Tabs>
+
+<Expandable title="Advanced Customization" default-open="false">
+  Customize your space with CSS variables. Set `--brand-primary: #3B82F6;` in theme settings.
+  
+  For custom components, extend MDX with React:
+
+  ```tsx
+  // components/CustomCallout.tsx
+  import { Callout } from '@components/mdx';
+
+  export const BrandCallout = ({ children }: { children: React.ReactNode }) => (
+    <Callout kind="info" style={{ borderLeftColor: '#3B82F6' }}>
+      {children}
+    </Callout>
+  );
+  ```
+</Expandable>
+
+## Next Steps
+
+Explore [spaces](/docs/spaces) for multi-project setups or [integrations](/docs/integrations) to connect with GitHub and Slack. Your documentation evolves with your project—start building today.
